@@ -17,3 +17,12 @@ test('button turns blue when clicked', () => {
   expect(colorButton).toHaveStyle({ backgroundColor: 'blue' });
   expect(colorButton.textContent).toBe('Change to Red');
 });
+
+test('initial conditions', () => {
+  render(<App />);
+
+  const colorButton = screen.getByRole('button', { name: 'Change to Blue' });
+  expect(colorButton).toBeEnabled();
+  const checkbox = screen.getByRole('checkbox');
+  expect(checkbox).not.toBeChecked();
+});
